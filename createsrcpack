@@ -3,13 +3,15 @@
 
 rm -Rf soundtouch
 rm soundtouch.zip
+rm soundtouch.tar.gz
 mkdir soundtouch
 cp -R * soundtouch
 cd soundtouch
+rm -Rf soundtouch
 rm -rf `find . -type d -name .svn`
 rm createsrcpack
 chmod u+x bootstrap
-./bootstrap
-rm -rf autom4te.cache
 cd ..
 zip -r9 soundtouch.zip soundtouch
+tar -chf soundtouch.tar soundtouch
+gzip soundtouch.tar
